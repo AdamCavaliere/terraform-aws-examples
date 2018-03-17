@@ -23,4 +23,10 @@ resource "aws_instance" "web" {
     Owner = "${var.owner}"
     TTL   = "${var.ttl}"
   }
+
+  provisioner "remote-exec" {
+    inline = [
+      "DD_API_KEY=ff8262586b76b22895a0a4c801511078 bash -c \"$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)\"",
+    ]
+  }
 }
