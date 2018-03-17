@@ -28,5 +28,12 @@ resource "aws_instance" "web" {
     inline = [
       "DD_API_KEY=ff8262586b76b22895a0a4c801511078 bash -c \"$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)\"",
     ]
+
+    connection {
+      user        = "root"
+      type        = "ssh"
+      private_key = "${var.ssh_key}"
+      timeout     = "2m"
+    }
   }
 }
