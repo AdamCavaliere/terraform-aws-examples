@@ -27,6 +27,6 @@ module "security-group" {
 
   name                = "SSH Servers"
   vpc_id              = "${module.vpc.default_vpc_id}"
-  ingress_cidr_blocks = "${module.vpc.public_subnets}"
+  ingress_cidr_blocks = "${module.vpc.public_subnets_cidr_blocks}"
   ingress_rules       = ["https-443-tcp"]
 }
