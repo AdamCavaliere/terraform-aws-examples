@@ -16,7 +16,7 @@ resource "aws_instance" "web" {
   key_name                    = "${var.keyname}"
   subnet_id                   = "${data.terraform_remote_state.networkbase.0.public_subnets}"
   associate_public_ip_address = true
-  security_groups = "${data.terraform_remote_state.networkbase.security_groups"
+  security_groups             = "${data.terraform_remote_state.networkbase.security_groups}"
 
   tags {
     Name  = "${var.app_name}"
