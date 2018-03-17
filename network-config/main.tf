@@ -20,3 +20,13 @@ module "vpc" {
     Environment = "${var.environment}"
   }
 }
+
+module "security-group" {
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "1.20.0"
+
+  name                = "SSH Servers"
+  vpc_id              = "${module.vpc.default_vpc_id}"
+  ingress_cidr_blocks = "${module.vpc.public_subnets}"
+  ingress_rules       = ["https-443-tcp"]
+}
