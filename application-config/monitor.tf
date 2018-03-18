@@ -1,6 +1,6 @@
 data "template_file" "hostlist" {
   count    = 2
-  template = "\"$${prefix}$${actualhost}\""
+  template = "'$${prefix}$${actualhost}'"
 
   vars {
     prefix     = "host:"
