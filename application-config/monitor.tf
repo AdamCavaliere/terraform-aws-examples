@@ -9,5 +9,5 @@ data "template_file" "hostlist" {
 }
 
 output "rendered" {
-  value = "${join(",", data.template_file.hostlist.rendered)}"
+  value = "${join(",", data.template_file.hostlist.*.rendered)}"
 }
