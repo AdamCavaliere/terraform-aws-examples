@@ -4,7 +4,7 @@ data "template_file" "hostlist" {
 
   vars {
     prefix     = "host:"
-    actualhost = "${element(aws_instance.web.id, count.index)}"
+    actualhost = "${element(aws_instance.web.*.id, count.index)}"
   }
 }
 
