@@ -30,7 +30,7 @@ resource "aws_instance" "web" {
     ]
 
     connection {
-      user        = "root"
+      user        = "ubuntu"
       type        = "ssh"
       private_key = "${var.ssh_key}"
       timeout     = "2m"
