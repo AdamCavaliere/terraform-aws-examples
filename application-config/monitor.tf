@@ -34,11 +34,8 @@ resource "datadog_monitor" "app" {
   notify_no_data    = true
   renotify_interval = 60
 
-  notify_audit = false
-  timeout_h    = 60
-  include_tags = true
-
-  silenced {
-    "*" = 0
-  }
+  notify_audit   = false
+  timeout_h      = 60
+  include_tags   = true
+  new_host_delay = 60
 }
