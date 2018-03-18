@@ -24,3 +24,7 @@ variable "organization" {
 variable "workspace" {
   description = "Network Workspace"
 }
+
+variable "ssh_key" {
+  description = "Key for executing remote commands"
+}
