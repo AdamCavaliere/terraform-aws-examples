@@ -31,7 +31,7 @@ resource "datadog_monitor" "app" {
     critical_recovery = 3
   }
 
-  notify_no_data    = false
+  notify_no_data    = true
   renotify_interval = 60
 
   notify_audit = false
