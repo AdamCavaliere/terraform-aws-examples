@@ -4,3 +4,5 @@
 envVars.json
 # Module directory
 .terraform/
+.py
+temp

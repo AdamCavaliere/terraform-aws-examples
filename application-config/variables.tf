@@ -28,3 +28,11 @@ variable "workspace" {
 variable "ssh_key" {
   description = "Key for executing remote commands"
 }
+
+variable "datadog_api_key" {
+  description = "Datadog API Key"
+}
+
+variable "datadog_app_key" {
+  description = "Datadog APP Key"
+}
