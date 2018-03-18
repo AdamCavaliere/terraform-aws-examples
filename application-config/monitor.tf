@@ -1,9 +1,10 @@
 data "template_file" "hostlist" {
+  count    = 2
   template = "$${prefix}$${actualhost}!"
 
   vars {
     prefix     = "host:"
-    actualhost = "${aws_instance.web.*.id}"
+    actualhost = "${element(aws_instance.web.id, count.index)}"
   }
 }
 
