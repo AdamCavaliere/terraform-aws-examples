@@ -1,6 +1,6 @@
 data "template_file" "hostlist" {
   count    = 2
-  template = "$${prefix}$${actualhost}"
+  template = "\"$${prefix}$${actualhost}\""
 
   vars {
     prefix     = "host:"
@@ -20,7 +20,7 @@ provider "datadog" {
 resource "datadog_monitor" "app" {
   name    = "${var.app_name} Host Monitor"
   type    = "service check"
-  query   = "datadog.agent.up.over(\"${join(",", data.template_file.hostlist.*.rendered)}\").last(2).count_by_status()"
+  query   = "datadog.agent.up.over(${join(",", data.template_file.hostlist.*.rendered)}).last(2).count_by_status()"
   message = "Initial Test"
 
   thresholds {
