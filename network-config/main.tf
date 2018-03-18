@@ -28,6 +28,6 @@ module "security-group" {
   name                = "SSH Servers"
   vpc_id              = "${module.vpc.vpc_id}"
   ingress_cidr_blocks = "${module.vpc.public_subnets_cidr_blocks}"
-  ingress_rules       = ["https-443-tcp"]
+  ingress_rules       = ["https-443-tcp", "ssh-tcp"]
   egress_rules        = ["all-all"]
 }
