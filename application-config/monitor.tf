@@ -1,5 +1,5 @@
 data "template_file" "hostlist" {
-  count    = "${var.instance_count}"
+  count    = "${length(aws_instance.web.*.id)}"
   template = "'$${prefix}$${actualhost}'"
 
   vars {

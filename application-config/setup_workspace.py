@@ -62,7 +62,7 @@ def createWorkspacePayload(vcsOrganization,vcsWorkspace,tfeWorkspaceName,working
   return workspacePayload
 
 def createWorkspace():
-  payload = createWorkspacePayload("AdamCavaliere","terraform-aws-examples",workspaceName,"applicaton-config",organization)
+  payload = createWorkspacePayload("AdamCavaliere","terraform-aws-examples",workspaceName,"application-config",organization)
   try:
     r = requests.post(createWorkspaceURL, headers=headers, data=json.dumps(payload))
   except:
