@@ -10,7 +10,7 @@ data "template_file" "hostlist" {
 }
 
 output "count_of_instances" {
-  value = "${length(aws_instance.web)}"
+  value = "${length(aws_instance.web.*.id)}"
 }
 
 output "datadog_host_list" {
