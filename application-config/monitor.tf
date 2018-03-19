@@ -1,12 +1,15 @@
 data "template_file" "hostlist" {
-  count    = "$${varcount}"
+  count    = "${locals.varcount}"
   template = "'$${prefix}$${actualhost}'"
 
   vars {
     prefix     = "host:"
     actualhost = "${element(aws_instance.web.*.id, count.index)}"
-    varcount   = "${length(aws_instance.web.*.id)}"
   }
+}
+
+locals {
+  varcount = "${length(aws_instance.web.*.id)}"
 }
 
 output "count_of_instances" {
