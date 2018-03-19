@@ -3,7 +3,7 @@ import json
 import hcl
 #User Configurable Vars
 organization = "azc"
-workspaceName = "CompanyABC-Application5"
+workspaceName = "CompanyXYZ-Application1"
 ATLAS_TOKEN = "Bearer c6dlOIUOp9IPhA.atlasv1.e5KpWCdKJ8ZtIRdzzEmmHg3yiMzL2l866FLNblMtEd7CKDbayzXG7I5v6LPFfb5EFTg"
 
 #Base configurations
@@ -77,6 +77,10 @@ def createVariables():
     for k2, v2 in v.items():
       if k2 == 'default':
         defaultVal = v2
+    try:
+      defaultVal
+    except:
+      defaultVal = " "
     payload = createVarPayload(varName,defaultVal,organization,workspaceName,"terraform","false")
     try:
       r = requests.post(createVariablesURL, headers=headers, data=json.dumps(payload))
@@ -92,6 +96,8 @@ def setEnvVariables():
         r = requests.post(createVariablesURL, headers=headers, data=json.dumps(payload))
       except:
         print r.raise_for_status()
+
 createWorkspace()
-createVariables()
 setEnvVariables()
+createVariables()
+

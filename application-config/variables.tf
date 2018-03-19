@@ -36,3 +36,8 @@ variable "datadog_api_key" {
 variable "datadog_app_key" {
   description = "Datadog APP Key"
 }
+
+variable "instance_count" {
+  description = "Count of the instances to create"
+  default     = "2"
+}
