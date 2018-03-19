@@ -1,15 +1,11 @@
 data "template_file" "hostlist" {
-  count    = 2
+  count    = "${var.instance_count}"
   template = "'$${prefix}$${actualhost}'"
 
   vars {
     prefix     = "host:"
     actualhost = "${element(aws_instance.web.*.id, count.index)}"
   }
-}
-
-output "count_of_instances" {
-  value = "${length(aws_instance.web.*.id)}"
 }
 
 output "datadog_host_list" {
