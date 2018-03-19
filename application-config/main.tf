@@ -17,7 +17,7 @@ resource "aws_instance" "web" {
   subnet_id                   = "${element(data.terraform_remote_state.networkbase.public_subnets, 0)}"
   associate_public_ip_address = true
   security_groups             = ["${data.terraform_remote_state.networkbase.security_groups}"]
-  count                       = 2
+  count                       = "${var.instance_count}"
 
   tags {
     Name  = "${var.app_name}-vm${count.index}"

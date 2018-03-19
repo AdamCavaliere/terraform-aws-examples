@@ -1,5 +1,5 @@
 data "template_file" "hostlist" {
-  count    = 2
+  count    = "${var.instance_count}"
   template = "'$${prefix}$${actualhost}'"
 
   vars {
