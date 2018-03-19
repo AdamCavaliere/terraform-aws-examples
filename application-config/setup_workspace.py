@@ -3,7 +3,7 @@ import json
 import hcl
 #User Configurable Vars
 organization = "azc"
-workspaceName = "CompanyXYZ-Application1"
+workspaceName = "CompanyXYZ-Application3"
 ATLAS_TOKEN = "Bearer c6dlOIUOp9IPhA.atlasv1.e5KpWCdKJ8ZtIRdzzEmmHg3yiMzL2l866FLNblMtEd7CKDbayzXG7I5v6LPFfb5EFTg"
 
 #Base configurations
